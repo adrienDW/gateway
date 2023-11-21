@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}I ❤️Gamer - Mes jeux vidéo{% endblock %}
+
+{% block body %}
+    <form action="{{ path('app_search_by_platforms') }}" method="POST">
+
+        <select name="plateforme">
+                <option>Sélectionner la plateforme</option>
+            {% for platform in listPlatforms %}
+                <option value="{{platform.name}}">{{platform.name}}</option>
+            {% endfor %}
+        </select>
+        <input name="test" type="text"></input>
+        <button type="submit" class="btn btn-primary">Valider</button>
+    </form>
+    <!-- Search -->
+    <div class="col-12 mt-5">
+        {{ form_start(search)}}
+        {{ form_widget(search.search, {'attr': {'placeholder': 'Recherche' | raw}}) }}
+        {{ form_end(search) }}
+    </div>
+
+    <!-- Search result -->
+    <div id="search-results"></div>
+
+    <!-- Video Games list -->
+    <div id="list-video-game">
+        {% include 'video_game/_listVideoGames.html.twig' %}
+    </div>
+
+{% endblock %}
