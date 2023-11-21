@@ -1,0 +1,37 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+
+api_json:
+    path: /api/json
+    controller: App\Controller\APICSVController::converterCSV
+    defaults:
+        format: json
+        _format: json
+
+api_csv:
+    path: /api/csv
+    controller: App\Controller\APICSVController::converterCSV
+    defaults:
+        format: csv
+        _format: csv
+        
+
+api_xml:
+    path: /api/xml
+    controller: App\Controller\APICSVController::converterCSV
+    defaults:
+        format: xml
+        _format: xml
+
+api_gateway:
+    path: /api/gateway
+    controller: App\Controller\APICSVController::converterCSV
+    defaults:
+        format: json
+        _format: json
+
+        
